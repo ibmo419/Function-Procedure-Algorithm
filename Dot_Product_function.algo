@@ -1,0 +1,29 @@
+FUNCTION Dot_Product(ps:FLOAT,v1,v2:ARRAY_OF FLOAT) : FLOAT
+
+BEGIN
+    FOR i FROM 0 TO 2  DO
+    ps=ps+v1[i]*v2[i];
+    END_FOR
+    RETURN ps ;
+END
+
+
+
+ALGORITHM Dot_Product_function
+VAR
+    ps:FLOAT:=0;
+    t1,t2:ARRAY_OF FLOAT[3];
+    n:INTEGER;
+BEGIN
+    READ(n);
+    FOR i FROM 0 TO n  DO
+    FOR i FROM 0 TO 2  DO
+    READ(t1[i]);
+    READ(t2[i]);
+    END_FOR
+    ps=Dot_Product(ps,t1,t2);
+    IF (ps=0) THEN
+        WRITE("orthogonal pair vectors n°:",n);
+    END_IF
+    END_FOR
+END
