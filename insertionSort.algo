@@ -1,0 +1,23 @@
+FUNCTION InsertionSort(VAR Arr:ARRAY_OF INTEGER,VAR n:INTEGER) : ARRAY_OF INTEGER
+VAR
+    value,hole:INTEGER:=0;
+BEGIN
+    FOR i FROM 1 TO n-1 STEP 1  DO
+        value=Arr[i];
+        hole=i;
+        WHILE (hole>0 && Arr[hole-1]>value) DO
+            Arr[hole]=Arr[hole-1];
+            hole=hole-1;
+        END_WHILE
+        Arr[hole]=value;
+    END_FOR
+    RETURN value ;
+END
+ALGORITHM InsertionSort
+BEGIN
+FOR i FROM 0 TO length.tab-1 STEP 1  DO
+    Read(tab[i]); //getting elements from user
+END_FOR
+RETURN InsertionSort(tab,length.tab);
+
+END
